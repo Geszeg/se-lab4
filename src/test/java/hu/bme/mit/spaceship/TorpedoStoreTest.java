@@ -17,4 +17,19 @@ class TorpedoStoreTest {
         // Assert
         assertEquals(true, result);
     }
+
+    @Test
+    void fire_MultipleFires() {
+        // Arrange
+        TorpedoStore store = new TorpedoStore(2);
+
+        // Act
+        boolean firstFireResult = store.fire(1);
+        boolean secondFireResult = store.fire(1);
+
+        // Assert
+        assertEquals(true, firstFireResult);
+        assertEquals(true, secondFireResult);
+    }
+
 }
